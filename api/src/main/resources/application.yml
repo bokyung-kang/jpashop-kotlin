@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: local
+  mvc:
+    # NoHandlerFoundException 처리
+    throwExceptionIfNoHandlerFound: true
+  web:
+    resources:
+      addMappings: false
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5434/jpashop?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format-sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        use_sql_comments: true
+        default_batch_fetch_size: 500
+    open-in-view: false
+
+logging.level:
+  org.hibernate.SQL: debug
+  com.study.jpashop: debug
